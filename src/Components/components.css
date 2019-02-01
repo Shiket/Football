@@ -1,0 +1,67 @@
+header{
+    width: 100%;
+    height:70px;
+    background-color: #00344a;
+}
+
+.content{
+    background-color: #00344a;
+    width:100%;
+    min-width:210px;
+    min-height: 100vh;
+    float:left;
+}
+
+.logo-img{
+    float:left;
+    margin-right:12px;
+}
+
+.logo-name{
+    color:#fff;
+    font-size: 23px;
+    padding-top:8px;
+    float: left;
+}
+
+.caption{
+    font-style: italic;
+    font-size:17px;
+    color: #d6d6d6;
+}
+.arrow{
+    float:left;
+    margin-left:15px;
+    margin-right: 10px;
+}
+
+
+.bghead{
+    background-color: #252629;
+    padding-top:15px;
+    padding-bottom:10px;
+}
+
+.leagueBox{
+    border-bottom: 4px solid #1abc9c;
+    padding-top:20px;
+    margin-top:60px;
+    height:100px;
+    width:50px;
+    background-color: #373737;
+}
+
+.leagueBox:hover{
+    background-color: #1abc9c;
+    transition: 0.4s;
+}
+
+.box{
+    border: 5px solid #252629;
+}
+.description{
+    height:220px;
+    background-color: #252525;
+    width: 50%;
+    margin-left: 50%;
+}

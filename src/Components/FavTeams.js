@@ -15,7 +15,6 @@ class FavTeams extends Component {
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/Components/Gallery">Gallery</Link></li>
                 </ul>
-
             </div>
         );
     }

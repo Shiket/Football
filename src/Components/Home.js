@@ -21,16 +21,15 @@ class Home extends Component {
                         <div className="leagueBox">
                             <div className="row">
                                 <div className="container d-flex pt-3">
-                                    <div className="col-3"><h5>PremierLeague</h5></div>
-                                    <div className="col-3"><h5>ENGLAND</h5></div>
-                                    <div className="firstPlace col-3">
+                                    <div className="col-3"><span className="pl-3">PremierLeague</span></div>
+                                    <div className="col-3"><span className="pl-3">ENGLAND</span></div>
+                                    <div className="topTeams col-3">
                                         <img className="mr-3" src={Gtrophy} alt="goldTrophy" width="27" height="27"></img>
-                                        <h5>FC Liverpool</h5>
+                                        <span>FC Liverpool</span>
                                     </div>
-
-                                    <div className="firstPlace col-3">
+                                    <div className="topTeams col-3">
                                         <img className="mr-3" src={Strophy} alt="silverTrophy " width="27" height="27"></img>
-                                        <h5>Manchester City</h5>
+                                        <span>Manchester City</span>
                                     </div>
                                 </div>
                             </div>

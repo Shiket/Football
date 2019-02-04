@@ -9,8 +9,7 @@ import Eredivisie from './img/erediv.png'
 import Bundesliga from './img/bundesLiga.png'
 import Ligue1 from './img/ligue1.png'
 
-class Home extends Component {
-    render() {
+const League = (props) => {
         return (
             <div>
                 <div className="row mt-5 d-flex align-items-center">
@@ -21,7 +20,7 @@ class Home extends Component {
                         <div className="leagueBox">
                             <div className="row">
                                 <div className="container d-flex pt-3">
-                                    <div className="col-3"><span className="pl-3">PremierLeague</span></div>
+                                    <div className="col-3"><span className="pl-3">{props.name}</span></div>
                                     <div className="col-3"><span className="pl-3">ENGLAND</span></div>
                                     <div className="topTeams col-3">
                                         <img className="mr-3" src={Gtrophy} alt="goldTrophy" width="27" height="27"></img>
@@ -41,7 +40,6 @@ class Home extends Component {
 
         );
     }
-}
 
 
-export default Home;
+export default League;

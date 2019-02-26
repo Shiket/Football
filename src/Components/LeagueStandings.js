@@ -2,9 +2,10 @@ import React from 'react';
 
 
 const LeagueStandings = (props) => {
-  console.log(props.location)
+  console.log(props)
   return (
-    <div>
+    <div className="liga">
+      NAZWA LIGI: {props.match.params.league}
     </div>
   );
 }

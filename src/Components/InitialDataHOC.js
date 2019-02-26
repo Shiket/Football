@@ -1,5 +1,5 @@
 import React from 'react'
-import Axios from 'axios'
+import axios from 'axios'
 import PremierLeagueLogo from './img/premierLeague.png'
 import EredivisieLogo from './img/erediv.png'
 import BundesligaLogo from './img/bundesLiga.png'
@@ -12,79 +12,55 @@ export default (WrappedComponent) => {
     return class InitialData extends React.Component {
         state = {
             leagues: [],
+            tables: [],
         }
-
         async componentDidMount() {
             let config = {
                 headers: { 'X-Auth-Token': 'a98f54234b9e4c41ad81f5858f8766cd' },
                 url: 'https://api.football-data.org/v2/competitions/',
+                url2: '/standings?standingType=TOTAL',
                 dataType: 'json',
                 type: 'GET',
             }
 
-            // axios.all
+            const leagueIco = [PremierLeagueLogo, SerieALogo, BundesligaLogo, Ligue1Logo, LaLigaLogo, EredivisieLogo];
 
-            const premierLeague = await Axios.get(config.url + 'PL/standings?standingType=TOTAL', config)
-                .then(res => res = {
-                    name: res.data.competition.name,
-                    country: res.data.competition.area.name,
-                    logo: PremierLeagueLogo,
-                    firstPlace: res.data.standings[0].table[0].team.name,
-                    secondPlace: res.data.standings[0].table[1].team.name
-                })
+            const data = await axios.all([
+                axios.get(`${config.url}PL${config.url2}`, config),
+                axios.get(`${config.url}SA${config.url2}`, config),
+                //     axios.get(`${config.url}BL1${config.url2}`, config),
+                //     axios.get(`${config.url}FL1${config.url2}`, config),
+                //     axios.get(`${config.url}PD${config.url2}`, config),
+                //     axios.get(`${config.url}DED${config.url2}`, config),
+            ])
 
-            const serieA = await Axios.get(config.url + 'SA/standings?standingType=TOTAL', config)
-                .then(res => res = {
-                    name: res.data.competition.name,
-                    country: res.data.competition.area.name,
-                    logo: SerieALogo,
-                    firstPlace: res.data.standings[0].table[0].team.name,
-                    secondPlace: res.data.standings[0].table[1].team.name
-                })
-
-            const bundesLiga = await Axios.get(config.url + 'BL1/standings?standingType=TOTAL', config)
-                .then(res => res = {
-                    name: res.data.competition.name,
-                    country: res.data.competition.area.name,
-                    logo: BundesligaLogo,
-                    firstPlace: res.data.standings[0].table[0].team.name,
-                    secondPlace: res.data.standings[0].table[1].team.name
-                })
-
-            const ligue1 = await Axios.get(config.url + 'FL1/standings?standingType=TOTAL', config)
-                .then(res => res = {
-                    name: res.data.competition.name,
-                    country: res.data.competition.area.name,
-                    logo: Ligue1Logo,
-                    firstPlace: res.data.standings[0].table[0].team.name,
-                    secondPlace: res.data.standings[0].table[1].team.name
-                })
-
-            const primeraDivision = await Axios.get(config.url + 'PD/standings?standingType=TOTAL', config)
-                .then(res => res = {
-                    name: res.data.competition.name,
-                    country: res.data.competition.area.name,
-                    logo: LaLigaLogo,
-                    firstPlace: res.data.standings[0].table[0].team.name,
-                    secondPlace: res.data.standings[0].table[1].team.name
-                })
-
-            const eredivisie = await Axios.get(config.url + 'DED/standings?standingType=TOTAL', config)
-                .then(res => res = {
-                    name: res.data.competition.name,
-                    country: res.data.competition.area.name,
-                    logo: EredivisieLogo,
-                    firstPlace: res.data.standings[0].table[0].team.name,
-                    secondPlace: res.data.standings[0].table[1].team.name
-                })
+            const arr = data.map((res, i) => ({
+                name: res.data.competition.name,
+                country: res.data.competition.area.name,
+                logo: leagueIco[i],
+                firstPlace: res.data.standings[0].table[0].team.name,
+                secondPlace: res.data.standings[0].table[1].team.name,
+            }));
 
 
-            this.setState({ leagues: [premierLeague, serieA, primeraDivision, bundesLiga, ligue1, eredivisie] })
+            const dataList = data.map(res => ({
+                league: res.data.competition.name.split(' ').join(''),
+                team: res.data.standings[0].table.map(a => [a.team.name, a.won, a.draw, a.lost])
+            }));
+            // ,
+            //             lost: res.data.standings[0].table.map(a => a.lost),
+            //                 won: res.data.standings[0].table.map(a => a.won),
+            //                     draws: res.data.standings[0].table.map(a => a.draw),
+            //                         teamName: res.data.standings[0].table.map(a => a.team.name),
+            this.setState({
+                leagues: [...arr],
+                tables: [...dataList]
+            })
         }
 
         render() {
-            if (this.state.leagues.length === 0) return <div>Loading..</div>
-            return <WrappedComponent {...this.props} leagues={this.state.leagues} />
+            if ((this.state.leagues.length === 0) || this.state.tables === 0) return <div>Loading..</div>
+            return <WrappedComponent {...this.props} leagues={this.state.leagues} tables={this.state.tables} />
         }
     }
 }

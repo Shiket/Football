@@ -1,30 +1,30 @@
-import React, { Component } from 'react';
-import './App.css';
-import {
-  BrowserRouter as Router,
-  Route
-} from 'react-router-dom';
-import Header from './Components/Header';
-import League from './Components/League';
-import Gallery from './Components/Gallery';
-import FavTeams from './Components/FavTeams';
+import React, { Component } from 'react'
+import './App.css'
+import { Route, Switch } from 'react-router-dom'
+import Header from './Components/Header'
+import League from './Components/League'
+import Gallery from './Components/Gallery'
+import FavTeams from './Components/FavTeams'
+import LeagueStanding from './Components/LeagueStandings'
+import InitialData from './Components/InitialDataHOC'
 
 class App extends Component {
 
   render() {
     return (
-      <Router className="App">
-        <div className="row">
+      <div className="App row">
           <div className="col-12"><Header /></div>
           <div className="col-2"><FavTeams /></div>
           <div className="col-10">
-            <Route exact path="/" component={League} />
+          <Switch>
+            <Route exact path="/" render={() => <League leagues={this.props.leagues} />} />
             <Route path="/Components/Gallery" component={Gallery} />
+            <Route path="/standings/:league" render={() => <LeagueStanding table={this.props.tables} />} />
+          </Switch>
           </div>
         </div>
-      </Router>
     );
   }
 }
 
-export default App;
+export default InitialData(App);

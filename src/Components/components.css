@@ -1,10 +1,13 @@
 header{
     width: 100%;
     height:70px;
-    background-color: #01345b;
+    background-color: #007226;
     display:flex;
 }
-
+a, a:hover{
+    color:#fff;
+    text-decoration: none;
+}
 .logo-img{
     margin-right:12px;
 }
@@ -12,20 +15,20 @@ header{
 .logo-name{
     color:#fff;
     margin-top: 6px;
-    font-family: 'Montserrat';
+    font-family: 'Mali';
 }
 
 .caption{
-    font-weight: 400;
     font-size:19px;
     color: #fff;
 }
 
 .leftMenu{
-    background-color: #01345b;
+    background-color: #252629;
     width:100%;
     min-width:210px;
     height: calc(100vh - 70px);
+    overflow-y: auto;
 }
 
 .favteamIco{
@@ -33,17 +36,20 @@ header{
 }
 
 .bghead{
-    background-color: #252629;
-    padding-top:15px;
+    background-color: #32383e;
+    padding-top:20px;
     padding-bottom:10px;
     display:flex;
 }
 
 .leagueBox{
     background-color: #252629;
-    font-style: italic;
     width:100%;
     height:60px;
+    cursor: pointer;
+}
+.leagueBox:hover{
+    background-color: #007226;
 }
 
 .topTeams{
@@ -52,4 +58,44 @@ header{
 }
 .container span{
     font-size:18px !important;
+}
+.scrollable {
+    height: calc(100vh - 129px);
+    overflow-y: auto;
+}
+.table-dark{
+    background-color: #252629;
+}
+.table-header{
+    width:100%;
+    padding-top: 9px;
+    height:59px;
+    background-color: #252629;
+}
+.table{
+    margin-bottom: 0px;
+}
+.team{
+    cursor: pointer;
+}
+.team:hover{
+    background: #32383e;
+}
+.teamList{
+    padding-left:15px;
+}
+.singleTeam{
+    padding:12px 0 12px 0;
+    cursor: pointer;
+}
+.singleTeam:hover{
+    color: #00be19;
+}
+.teamInfo{
+    color: #252629;
+
+    padding-top: 3px;
+}
+.teamInfo a{
+    color: #252629;
 }

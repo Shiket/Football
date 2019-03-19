@@ -1,6 +1,6 @@
 {
-  "homepage": "https://shiket.github.io/football",
-  "name": "football",
+  "homepage": "https://shiket.github.io/football-app",
+  "name": "football-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

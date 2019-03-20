@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './components.css';
 import Team from './img/team.png'
 import { Link } from 'react-router-dom';
 import { TeamContext } from './ContextApi'
 
-const FavTeams = () => {
+class FavTeams extends Component {
+    render() {
+        console.log(this.props)
         return (
             <TeamContext.Consumer>
                 {({ favourites }) => (
@@ -16,7 +18,7 @@ const FavTeams = () => {
                         <div className="teamList mt-3">
                             {favourites.map(a =>
                                 <div key={a[1].toString()}>
-                                    <Link to={`Football/fav/${(a[0]).split(' ').join('')}`}>
+                                    <Link to={`/Football/fav/${(a[0]).split(' ').join('')}`}>
                                         <div className="singleTeam">
                                             <img className="mr-3" src={a[1]} alt="team-logo" width="28" height="30"></img> {a[0]}
                                         </div>
@@ -28,6 +30,7 @@ const FavTeams = () => {
                 )}
             </TeamContext.Consumer>
         );
+    }
 }
 
 export default FavTeams;

@@ -18,7 +18,7 @@ class App extends Component {
         <div className="col-10">
             <Route exact path="/Football/" render={() => <League leagues={this.props.leagues} />} />
             <Route path="/Football/standings/:league" render={props => <LeagueStandings {...props} table={this.props.tables} />} />
-            <Route path="Football//fav/:team" render={props => <Team {...props} fav={this.props.favourites} />} />
+            <Route path="/Football/fav/:team" render={props => <Team {...props} fav={this.props.favourites} />} />
         </div>
       </div>
     );

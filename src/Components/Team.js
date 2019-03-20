@@ -11,7 +11,7 @@ class Team extends React.Component {
 
   async componentDidMount() {
     let config = {
-      headers: { 'X-Auth-Token': 'a98f54234b9e4c41ad81f5858f8766cd' },
+      headers: { 'X-Auth-Token': process.env.REACT_APP_API_KEY },
       url: 'https://api.football-data.org/v2/',
       dataType: 'json',
       type: 'GET',

@@ -1,10 +1,10 @@
 {
   "main.css": "/Football/static/css/main.d5614965.chunk.css",
-  "main.js": "/Football/static/js/main.11efbcb8.chunk.js",
-  "main.js.map": "/Football/static/js/main.11efbcb8.chunk.js.map",
+  "main.js": "/Football/static/js/main.04f720a6.chunk.js",
+  "main.js.map": "/Football/static/js/main.04f720a6.chunk.js.map",
   "static/css/1.2d029677.chunk.css": "/Football/static/css/1.2d029677.chunk.css",
-  "static/js/1.fd4bae9f.chunk.js": "/Football/static/js/1.fd4bae9f.chunk.js",
-  "static/js/1.fd4bae9f.chunk.js.map": "/Football/static/js/1.fd4bae9f.chunk.js.map",
+  "static/js/1.d9c4a431.chunk.js": "/Football/static/js/1.d9c4a431.chunk.js",
+  "static/js/1.d9c4a431.chunk.js.map": "/Football/static/js/1.d9c4a431.chunk.js.map",
   "runtime~main.js": "/Football/static/js/runtime~main.5fda931d.js",
   "runtime~main.js.map": "/Football/static/js/runtime~main.5fda931d.js.map",
   "static/media/g-tro.png": "/Football/static/media/g-tro.f6fc2c73.png",
@@ -18,6 +18,6 @@
   "static/css/main.d5614965.chunk.css.map": "/Football/static/css/main.d5614965.chunk.css.map",
   "static/css/1.2d029677.chunk.css.map": "/Football/static/css/1.2d029677.chunk.css.map",
   "index.html": "/Football/index.html",
-  "precache-manifest.a556d8c484ac3d08cb71885268b91744.js": "/Football/precache-manifest.a556d8c484ac3d08cb71885268b91744.js",
+  "precache-manifest.96d00d249485ffe7e6c23718d24552ef.js": "/Football/precache-manifest.96d00d249485ffe7e6c23718d24552ef.js",
   "service-worker.js": "/Football/service-worker.js"
 }

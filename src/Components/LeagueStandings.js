@@ -12,7 +12,7 @@ const LeagueStandings = (props) => {
       {({ addFavourite }) => (
         <div>
           <div className="table-header d-flex align-items-center">
-            <Link to={`/`}>
+            <Link to={`/Football/`}>
               <img className="mr-4" src={larrow} alt="arrow" width="40" height="40"></img>
             </Link>
 

@@ -11,7 +11,7 @@ const League = (props) => {
             {({ leagues }) => (
                 leagues.map((league, i) =>
                     <div key={i}>
-                        <Link to={`/standings/${(league.name).split(' ').join('')}`}>
+                        <Link to={`/Football/standings/${(league.name).split(' ').join('')}`}>
                             <div className="row mt-5 d-flex align-items-center">
                                 <div className="offset-1"></div>
                                 <div className="col-1">

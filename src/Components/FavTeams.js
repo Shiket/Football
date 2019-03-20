@@ -16,7 +16,7 @@ const FavTeams = () => {
                         <div className="teamList mt-3">
                             {favourites.map(a =>
                                 <div key={a[1].toString()}>
-                                    <Link to={`/fav/${(a[0]).split(' ').join('')}`}>
+                                    <Link to={`Football/fav/${(a[0]).split(' ').join('')}`}>
                                         <div className="singleTeam">
                                             <img className="mr-3" src={a[1]} alt="team-logo" width="28" height="30"></img> {a[0]}
                                         </div>

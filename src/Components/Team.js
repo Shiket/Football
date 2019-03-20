@@ -49,7 +49,7 @@ class Team extends React.Component {
     return (
       <div>
         <div className="table-header d-flex align-items-center">
-          <Link to={`/`}>
+          <Link to={`/Football/`}>
             <img className="mr-4" src={larrow} alt="arrow" width="40" height="40"></img>
           </Link>
           <h4>{this.state.team.name}</h4>

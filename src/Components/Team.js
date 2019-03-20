@@ -38,8 +38,7 @@ class Team extends React.Component {
       .then(res2 =>
         this.setState({
           matches: {
-            next: res2.data.matches,
-            nextlog: console.log(res2.data)
+            next: res2.data.matches
           }
         }));
   }
@@ -62,7 +61,7 @@ class Team extends React.Component {
               <img src={this.state.team.logo} alt="logo" width="180" height="180"></img>
             </div>
           </div>
-          <div className="col-3 ml-3">
+          <div className="col-8 ml-3">
             <h5 className="teamInfo"><b>LEAGUE:  </b> {this.state.team.league}</h5>
             <h5 className="teamInfo"><b>COUNTRY: </b> {this.state.team.country}</h5>
             <h5 className="teamInfo"><b>FOUNDED: </b> {this.state.team.founded}</h5>
@@ -70,15 +69,8 @@ class Team extends React.Component {
             <h5 className="teamInfo"><b>COACH:   </b> {this.state.team.coach}</h5>
             <h5 className="teamInfo"><b>WEBSITE: </b> <a href={this.state.team.website}>{(this.state.team.website).slice(11)}</a></h5>
           </div>
-          <div className="col-6">
-            <h2 className="mx-auto d-block">Next matches:</h2>
-            {/* {this.state.matches.next.map(a =>
-              <div>
-                <h3>{a.awayTeam.name}</h3> vs
-                <h3>{a.homeTeam.name}</h3>
-              </div>
-            )} */}
-
+          <div className="col-2">
+            <h2 className="mx-auto d-block">Need more api calls ;c</h2>
           </div>
           <div className="offset-1"></div>
         </div>

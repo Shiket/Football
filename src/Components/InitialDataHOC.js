@@ -10,40 +10,37 @@ import placeholder from './img/logo-placeholder.png'
 import { TeamContext } from './ContextApi'
 
 export default (WrappedComponent) => {
-
     return class InitialData extends React.Component {
         state = {
             leagues: [],
             tables: [],
             favourites: [],
-            addFavourite: (data) =>
-                (this.state.favourites.length === 0 || this.state.favourites.every(a => a[0] !== data[0])) ?
+            addFavourite: (data) => (this.state.favourites.length === 0 || this.state.favourites.every(a => a[0] !== data[0])) ?
                     this.setState({
                         favourites: [...this.state.favourites, data]
                     }) : alert('Team is already on you list')
         }
 
         async componentDidMount() {
-            let config = {
-                headers: { 'X-Auth-Token': 'a98f54234b9e4c41ad81f5858f8766cd' },
+            const leagueIco = [PremierLeagueLogo, SerieALogo, BundesligaLogo, Ligue1Logo, LaLigaLogo, EredivisieLogo];
+            const config = {
+                headers: { 'X-Auth-Token': process.env.REACT_APP_API_KEY },
                 url: 'https://api.football-data.org/v2/competitions/',
                 url2: '/standings?standingType=TOTAL',
                 dataType: 'json',
                 type: 'GET',
             }
 
-            const leagueIco = [PremierLeagueLogo, SerieALogo, BundesligaLogo, Ligue1Logo, LaLigaLogo, EredivisieLogo];
-
             const data = await axios.all([
                 axios.get(`${config.url}PL${config.url2}`, config),
                 axios.get(`${config.url}SA${config.url2}`, config),
-                axios.get(`${config.url}BL1${config.url2}`, config),
-                axios.get(`${config.url}FL1${config.url2}`, config),
-                axios.get(`${config.url}PD${config.url2}`, config),
-                axios.get(`${config.url}DED${config.url2}`, config),
+                // axios.get(`${config.url}BL1${config.url2}`, config),
+                // axios.get(`${config.url}FL1${config.url2}`, config),
+                // axios.get(`${config.url}PD${config.url2}`, config),
+                // axios.get(`${config.url}DED${config.url2}`, config),
             ])
 
-            const arr = data.map((res, i) => ({
+            const leaguesData = data.map((res, i) => ({
                 name: res.data.competition.name,
                 country: res.data.competition.area.name,
                 logo: leagueIco[i],
@@ -51,16 +48,16 @@ export default (WrappedComponent) => {
                 secondPlace: res.data.standings[0].table[1].team.name,
             }));
 
-
-            const dataList = data.map(res => ({
+            const teamData = data.map(res => ({
                 league: res.data.competition.name.split(' ').join(''),
-                team: res.data.standings[0].table.map(a => [a.team.name, a.won, a.draw, a.lost, a.points, a.playedGames,
-                      a.team.crestUrl == null || a.team.crestUrl === ''  ? placeholder : a.team.crestUrl, a.team.id])
+                team: res.data.standings[0].table.map(a =>
+                    [a.team.name, a.won, a.draw, a.lost, a.points, a.playedGames,
+                    a.team.crestUrl == null || a.team.crestUrl === '' ? placeholder : a.team.crestUrl, a.team.id])
             }));
 
             this.setState({
-                leagues: [...arr],
-                tables:  [...dataList],
+                leagues: [...leaguesData],
+                tables: [...teamData],
             })
         }
 
@@ -71,7 +68,7 @@ export default (WrappedComponent) => {
                     <WrappedComponent {...this.props}
                         leagues={this.state.leagues}
                         tables={this.state.tables}
-                        favourites={this.state.favourites}/>
+                        favourites={this.state.favourites} />
                 </TeamContext.Provider>
             );
         }

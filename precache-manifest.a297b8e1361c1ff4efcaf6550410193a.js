@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/Football/static/media/premierLeague.c22fa4d9.png"
   },
   {
-    "revision": "968f2ba9aff6e8e2e802",
+    "revision": "f4d7ea6c6baf8f17079a",
     "url": "/Football/static/css/main.78014726.chunk.css"
   },
   {
@@ -28,8 +28,8 @@ self.__precacheManifest = [
     "url": "/Football/static/media/s-tro.a5ef7ab5.png"
   },
   {
-    "revision": "968f2ba9aff6e8e2e802",
-    "url": "/Football/static/js/main.968f2ba9.chunk.js"
+    "revision": "f4d7ea6c6baf8f17079a",
+    "url": "/Football/static/js/main.f4d7ea6c.chunk.js"
   },
   {
     "revision": "6bfe45ba9b1bc8e881b2b9a9b0a22538",
@@ -52,7 +52,7 @@ self.__precacheManifest = [
     "url": "/Football/static/css/1.70a5eda5.chunk.css"
   },
   {
-    "revision": "82a900297548846a6c254c960390d966",
+    "revision": "c03e0a9e86eb0931997814488bd1495b",
     "url": "/Football/index.html"
   }
 ];

@@ -6,7 +6,6 @@ import { TeamContext } from './ContextApi'
 
 class FavTeams extends Component {
     render() {
-        console.log(this.props)
         return (
             <TeamContext.Consumer>
                 {({ favourites }) => (

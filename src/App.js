@@ -10,7 +10,6 @@ import Team from './Components/Team'
 
 class App extends Component {
   render() {
-    console.log(this.props)
     return (
       <div className="App row">
         <div className="col-12"><Header /></div>

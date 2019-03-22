@@ -34,9 +34,9 @@ export default (WrappedComponent) => {
             const data = await axios.all([
                 axios.get(`${config.url}PL${config.url2}`, config),
                 axios.get(`${config.url}SA${config.url2}`, config),
-                // axios.get(`${config.url}BL1${config.url2}`, config),
-                // axios.get(`${config.url}FL1${config.url2}`, config),
-                // axios.get(`${config.url}PD${config.url2}`, config),
+                axios.get(`${config.url}BL1${config.url2}`, config),
+                axios.get(`${config.url}FL1${config.url2}`, config),
+                axios.get(`${config.url}PD${config.url2}`, config),
                 // axios.get(`${config.url}DED${config.url2}`, config),
             ])
 
